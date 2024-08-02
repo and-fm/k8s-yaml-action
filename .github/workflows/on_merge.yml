@@ -81,7 +81,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push tag to repo
         if: steps.gen-tag.outcome == 'success'
-        uses: actions/github-script@v5
+        uses: actions/github-script@v7
         with:
           script: |
             github.rest.git.createRef({
@@ -93,7 +93,7 @@ jobs:
 
       - name: Push major version tag to repo
         if: ${{ (steps.gen-tag.outcome == 'success') }}
-        uses: actions/github-script@v5
+        uses: actions/github-script@v7
         with:
           script: |
             github.rest.git.createRef({
