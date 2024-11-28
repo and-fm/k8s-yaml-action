@@ -20,7 +20,7 @@ inputs:
     description: Env vars list in the same format as passing secrets but generates configmap
     required: false
   annotations:
-    description: K8s annotations to include in the secret
+    description: K8s annotations to append to the resource
     required: false
 runs:
   using: "docker"
