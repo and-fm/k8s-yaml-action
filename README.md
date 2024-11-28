@@ -58,7 +58,8 @@ jobs:
           secrets: |-
             SECRET_1:${{ secrets.SECRET_1 }}
             SECRET_2:${{ secrets.SECRET_2 }}
-          annotations: #optional if you need annotations like for reflection
+          #optional if you need annotations like for reflection
+          annotations: |
             sealedsecrets.bitnami.com/cluster-wide: "true"
             reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
             reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "*"

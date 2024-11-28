@@ -47,7 +47,7 @@ fi
 chmod +x kubecmd.sh
 
 # add any annotations passed in
-if [ -z $6 ]
+if [ -z $6 ]; then
     ./kubecmd.sh >> finalresource.yml
 else
     ./kubecmd.sh >> resource.yml
