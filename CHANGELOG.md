@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Added support for annotations
+
 ## 0.4.0
 
 - You can now generate basic auth secrets!

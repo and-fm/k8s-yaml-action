@@ -13,6 +13,7 @@ The following inputs can be used as `step.with` keys:
 | `secrets`       | List   |         | `false`  | List of secrets to pass in to generate a secret                                      |
 | `basic_auth`    | String |         | `false`  | A username and password to generate a basic auth secret. E.g. `bobby:iLikeTrains123` |
 | `configmap_env` | List   |         | `false`  | List of vars to pass in to generate a configmap (same format as secrets)             |
+| `annotations`   | String |         | `false`  | Multi line list of valid k8s annotations                                             |
 
 ## Outputs
 
@@ -58,7 +59,7 @@ jobs:
           secrets: |-
             SECRET_1:${{ secrets.SECRET_1 }}
             SECRET_2:${{ secrets.SECRET_2 }}
-          #optional if you need annotations like for reflection
+          #optional if you need annotations such as for reflection
           annotations: |
             sealedsecrets.bitnami.com/cluster-wide: "true"
             reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
