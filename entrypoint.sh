@@ -63,7 +63,7 @@ else
     echo "before copy"
     cp finalresource.yml resource2.yml
     echo "after copy"
-    LABELS={$7} yq '.metadata.labels = load(env(LABELS))' resource2.yml > finalresource.yml
+    LABELS={$7} yq '.metadata.labels = load(strenv(LABELS))' resource2.yml > finalresource.yml
     echo "after labels"
 fi
 
