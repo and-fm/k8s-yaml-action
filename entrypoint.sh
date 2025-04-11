@@ -56,6 +56,16 @@ else
     yq '.metadata.annotations = load("annotations.yml")' resource.yml > finalresource.yml
 fi
 
+# add any labels passed in
+if [ -z $6 ]; then
+    ./kubecmd.sh >> finalresource.yml
+else
+    ./kubecmd.sh >> resource2.yml
+    echo "$6" > annotations.yml
+
+    yq '.metadata.annotations = load("annotations.yml")' resource2.yml > finalresource.yml
+fi
+
 echo 'out_yaml<<EOF' >> $GITHUB_OUTPUT
 cat finalresource.yml >> $GITHUB_OUTPUT
 echo "EOF" >> $GITHUB_OUTPUT
