@@ -58,6 +58,7 @@ fi
 
 # add any labels passed in
 if [ -z $7 ]; then
+    echo "no labels passed in"
 else
     cp finalresource.yml resource2.yml
     echo "$7" > labels.yml
