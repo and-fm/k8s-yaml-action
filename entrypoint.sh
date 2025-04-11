@@ -61,9 +61,9 @@ if [ -z $7 ]; then
     ./kubecmd.sh >> finalresource.yml
 else
     ./kubecmd.sh >> resource2.yml
-    echo "$7" > annotations.yml
+    echo "$7" > labels.yml
 
-    yq '.metadata.annotations = load("annotations.yml")' resource2.yml > finalresource.yml
+    yq '.metadata.labels = load("labels.yml")' resource2.yml > finalresource.yml
 fi
 
 echo 'out_yaml<<EOF' >> $GITHUB_OUTPUT
