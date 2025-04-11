@@ -64,7 +64,7 @@ else
     cp finalresource.yml resource2.yml
     echo "after copy"
     LABELS={$7} yq '.metadata.labels = load(strenv(LABELS))' resource2.yml > finalresource.yml
-    echo "after labels"
+    echo "$LABELS after labels"
 fi
 
 echo 'out_yaml<<EOF' >> $GITHUB_OUTPUT
