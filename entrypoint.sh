@@ -65,8 +65,6 @@ else
     yq '.metadata.labels = load("labels.yml")' resource2.yml > finalresource.yml
 fi
 
-echo "finalresource.yml"
-cat finalresource.yml
 
 echo 'out_yaml<<EOF' >> $GITHUB_OUTPUT
 cat finalresource.yml >> $GITHUB_OUTPUT
