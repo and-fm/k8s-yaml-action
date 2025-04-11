@@ -56,6 +56,16 @@ else
     yq '.metadata.annotations = load("annotations.yml")' resource.yml > finalresource.yml
 fi
 
+# add any labels passed in
+if [ -z $7 ]; then
+    echo "no labels passed in"
+else
+    cp finalresource.yml resource2.yml
+    echo "$7" > labels.yml
+    yq '.metadata.labels = load("labels.yml")' resource2.yml > finalresource.yml
+fi
+
+
 echo 'out_yaml<<EOF' >> $GITHUB_OUTPUT
 cat finalresource.yml >> $GITHUB_OUTPUT
 echo "EOF" >> $GITHUB_OUTPUT

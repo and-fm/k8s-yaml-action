@@ -20,7 +20,10 @@ inputs:
     description: Env vars list in the same format as passing secrets but generates configmap
     required: false
   annotations:
-    description: K8s annotations to append to the resource
+    description: K8s annotations to append to the metadata
+    required: false
+  labels:
+    description: K8s labels to append to the metadata
     required: false
 runs:
   using: "docker"
@@ -32,3 +35,4 @@ runs:
     - ${{ inputs.basic_auth }}
     - ${{ inputs.configmap_env }}
     - ${{ inputs.annotations }}
+    - ${{ inputs.labels }}
