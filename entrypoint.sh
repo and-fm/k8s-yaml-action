@@ -62,8 +62,10 @@ if [ -z $7 ]; then
 else
     echo "before copy"
     cp finalresource.yml resource2.yml
-    echo "after copy"
-    LABELS={$7} yq '.metadata.labels = load(strenv(LABELS))' resource2.yml > finalresource.yml
+    echo "$7" > labels.yml
+    cat labels.yml
+    echo "after copycat"
+    yq '.metadata.labels = load("labels.yml")' resource2.yml > finalresource.yml
     echo "$LABELS after labels"
 fi
 
