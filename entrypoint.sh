@@ -60,14 +60,13 @@ fi
 if [ -z $7 ]; then
     echo "no labels passed in"
 else
-    echo "before copy"
     cp finalresource.yml resource2.yml
     echo "$7" > labels.yml
-    cat labels.yml
-    echo "after copycat"
     yq '.metadata.labels = load("labels.yml")' resource2.yml > finalresource.yml
-    echo "$LABELS after labels"
 fi
+
+echo "finalresource.yml"
+cat finalresource.yml
 
 echo 'out_yaml<<EOF' >> $GITHUB_OUTPUT
 cat finalresource.yml >> $GITHUB_OUTPUT
