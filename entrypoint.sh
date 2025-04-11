@@ -57,11 +57,11 @@ else
 fi
 
 # add any labels passed in
-if [ -z $6 ]; then
+if [ -z $7 ]; then
     ./kubecmd.sh >> finalresource.yml
 else
     ./kubecmd.sh >> resource2.yml
-    echo "$6" > annotations.yml
+    echo "$7" > annotations.yml
 
     yq '.metadata.annotations = load("annotations.yml")' resource2.yml > finalresource.yml
 fi
