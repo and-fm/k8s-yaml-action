@@ -58,9 +58,8 @@ fi
 
 # add any labels passed in
 if [ -z $7 ]; then
-    ./kubecmd.sh >> finalresource.yml
 else
-    ./kubecmd.sh >> resource2.yml
+    cp finalresource.yml resource2.yml
     echo "$7" > labels.yml
 
     yq '.metadata.labels = load("labels.yml")' resource2.yml > finalresource.yml
