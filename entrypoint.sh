@@ -61,9 +61,8 @@ if [ -z $7 ]; then
     echo "no labels passed in"
 else
     cp finalresource.yml resource2.yml
-    echo "$7" > labels.yml
-
-    yq '.metadata.labels = load("labels.yml")' resource2.yml > finalresource.yml
+    LABELS=$7
+    yq '.metadata.labels = load(strenv(LABELS))' resource2.yml > finalresource.yml
 fi
 
 echo 'out_yaml<<EOF' >> $GITHUB_OUTPUT
