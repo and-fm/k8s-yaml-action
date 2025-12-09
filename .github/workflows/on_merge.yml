@@ -57,12 +57,12 @@ jobs:
           cat CHANGELOG.md | awk '/## ${{ inputs.version }}/{l++} l==1' | awk '/##.*/{l++} l>1{exit} l==1' >> change.txt
       - name: Check for tag
         id: tag-check
-        uses: mukunku/tag-exists-action@v1.6.0
+        uses: mukunku/tag-exists-action@v1.7.0
         with:
           tag: ${{steps.gen-tag.outputs.tag}}
       - name: Check for major tag
         id: major-tag-check
-        uses: mukunku/tag-exists-action@v1.6.0
+        uses: mukunku/tag-exists-action@v1.7.0
         with:
           tag: ${{steps.gen-tag.outputs.major_tag}}
       - name: Delete previous tag if exists
