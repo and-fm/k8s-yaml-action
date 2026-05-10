@@ -1,3 +1,7 @@
+## 0.7.0
+
+- Upgrade to node24
+
 ## 0.6.0
 
 - Added support for labels
