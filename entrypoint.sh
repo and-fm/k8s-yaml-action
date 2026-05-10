@@ -56,8 +56,6 @@ else
     yq '.metadata.annotations = load("annotations.yml")' resource.yml > finalresource.yml
 fi
 
-cat finalresource.yml
-
 # add any labels passed in
 if [ -z $7 ]; then
     echo "no labels passed in"
